@@ -1,0 +1,42 @@
+{
+    "data": {
+        "benchmark_ss" : [
+            "D:/ultrasound_2_alex/ss316/benchmark_1.cine",
+            "D:/ultrasound_2_alex/ss316/benchmark_2.cine",
+            "D:/ultrasound_2_alex/ss316/benchmark_3.cine",
+            "D:/ultrasound_2_alex/ss316/benchmark_4.cine"
+        ],
+        "ultrasound_17_ss" : [
+            "D:/ultrasound_2_alex/ss316/new_soundfield/ultrasound_17_1.cine",
+            "D:/ultrasound_2_alex/ss316/new_soundfield/ultrasound_17_2.cine",
+            "D:/ultrasound_2_alex/ss316/new_soundfield/ultrasound_17_3.cine",
+            "D:/ultrasound_2_alex/ss316/new_soundfield/ultrasound_17_4.cine"
+        ],
+        "ultrasound_22_ss" : [
+            "D:/ultrasound_2_alex/ss316/new_soundfield/ultrasound_228_1.cine",
+            "D:/ultrasound_2_alex/ss316/new_soundfield/ultrasound_228_2.cine",
+            "D:/ultrasound_2_alex/ss316/new_soundfield/ultrasound_228_3.cine",
+            "D:/ultrasound_2_alex/ss316/new_soundfield/ultrasound_228_4.cine"
+        ],
+        "benchmark_ti" : [
+            "D:/ultrasound_2_alex/Ti_2/benchmark_1.cine",
+            "D:/ultrasound_2_alex/Ti_2/benchmark_2.cine",
+            "D:/ultrasound_2_alex/Ti_2/benchmark_3.cine",
+            "D:/ultrasound_2_alex/Ti_2/benchmark_4.cine"
+        ],
+        "ultrasound_17_ti" : [
+            "D:/ultrasound_2_alex/Ti_2/new_soundfield/ultrasound_17_1.cine",
+            "D:/ultrasound_2_alex/Ti_2/new_soundfield/ultrasound_17_2.cine",
+            "D:/ultrasound_2_alex/Ti_2/new_soundfield/ultrasound_17_3.cine",
+            "D:/ultrasound_2_alex/Ti_2/new_soundfield/ultrasound_17_4.cine"
+        ],
+        "ultrasound_22_ti" : [
+            "D:/ultrasound_2_alex/Ti_2/new_soundfield/ultrasound_228_1.cine",
+            "D:/ultrasound_2_alex/Ti_2/new_soundfield/ultrasound_228_2.cine",
+            "D:/ultrasound_2_alex/Ti_2/new_soundfield/ultrasound_228_3.cine",
+            "D:/ultrasound_2_alex/Ti_2/new_soundfield/ultrasound_228_4.cine"
+        ]
+    },
+    "crop" : [[120,20],[0,0]],
+    "output_path" : "./video/heat_mat_all.h5"
+}
