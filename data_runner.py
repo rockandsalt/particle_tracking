@@ -40,9 +40,21 @@ def binarise_half_way(image):
     max_val = np.max(image)
     return ((min_val+(max_val-min_val)*0.25) <= image).astype(int)
 
+@pims.pipeline
+def binarise_half_way_err(image):
+    image = image.astype(float)
+    min_val = np.min(image)
+    max_val = np.max(image)
+    return ((min_val+(max_val-min_val)*0.25) <= image).astype(int)
+
 def process_frames(vid, crop, min_frame):
-    vid = pims.process.crop(vid[:,min_frame], crop)
+    vid = pims.process.crop(vid[:min_frame], crop)
     vid = binarise_half_way(vid)
+    return sum_im(vid)
+
+def process_frames_err(vid, crop, min_frame):
+    vid = pims.process.crop(vid[:min_frame], crop)
+    vid = binarise_half_way_err(vid)
     return sum_im(vid)
 
 def run_loader(path):
@@ -69,5 +81,33 @@ def run_loader(path):
     
     f.close()
 
+def process_erroneous():
+    vid = pims.ImageSequence("D:/ultrasound_2_alex/ss316/new_soundfield/tif/ultrasound_228_3*.tif")
+    area = process_frames_err(vid, ((120,180),(0,0)), 20037)
+    f = h5py.File('./video/ss_228_run_3.h5', 'w')
+    f.create_dataset('data', data=area)
+    f.flush()
+    f.close()
+
+def save_one_frame(path):
+    with open(path) as f:
+        data = json.load(f)
+
+    f = h5py.File('./video/one_frame.h5', 'w')
+    
+    for key, f_list in data['data'].items():
+        one_frame = []
+        for f_name in tqdm(f_list):
+            try:
+                vid = pims.open(f_name)
+                one_frame.append(vid[0])
+            except :
+                print("error on : {}".format(f_name))
+        
+        f.create_dataset(key, data=np.stack(one_frame, axis = 0))
+        f.flush()
+    
+    f.close()
+
 if __name__ == "__main__":
-    run_loader('./ss316_path.json')
+    process_erroneous()
