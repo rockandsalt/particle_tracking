@@ -1,0 +1,15 @@
+{
+    "data": {
+        "benchmark" : [
+            "D:/ultrasound_2_alex/2020-12-11-SideFeed/benchmark.cine"
+        ],
+        "M1" : [
+            "D:/ultrasound_2_alex/2020-12-11-SideFeed/m1.cine"
+        ],
+        "M2" : [
+            "D:/ultrasound_2_alex/2020-12-11-SideFeed/m2.cine"
+        ]
+    },
+    "crop" : [[120,0],[0,0]],
+    "output_path" : "./heat_mat_all.h5"
+}
