@@ -7,7 +7,6 @@ from scipy import ndimage
 import scipy.io
 
 import pims
-import trackpy as tp
 
 import dask.array as da
 import dask
@@ -66,19 +65,20 @@ def run_loader(path):
     f = h5py.File(output_path, 'w')
 
     min_frame = find_min_frame(data)
-    
+
     for key, f_list in data['data'].items():
         area_im = []
         for f_name in tqdm(f_list):
             try:
                 vid = pims.open(f_name)
                 area_im.append(process_frames(vid, cropping_size, min_frame))
-            except :
+            except:
                 print("error on : {}".format(f_name))
-
-        f.create_dataset(key, data=np.stack(area_im, axis = 0))
+        if len(area_im) > 1:
+            f.create_dataset(key, data=np.stack(area_im, axis=0))
+        else:
+            f.create_dataset(key, data=area_im[0])
         f.flush()
-    
     f.close()
 
 def process_erroneous():
@@ -110,4 +110,4 @@ def save_one_frame(path):
     f.close()
 
 if __name__ == "__main__":
-    process_erroneous()
+    run_loader('./sidefeed.json')
